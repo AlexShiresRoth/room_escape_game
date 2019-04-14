@@ -34,6 +34,18 @@ private:
 	//ray-cast and grab whats in reach
 	void Grab();
 
+	//release what is being grabbed
+	void Release();
+
+	//find attatched physics
+	void FindPhysicsHandleComponent();
+
+	//setup assumed attatched input component
+	void SetupInputComponent();
+
+	//return hit for first physics body in reach
+	const FHitResult GetFirstPhysicsBodyInReach();
+
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
