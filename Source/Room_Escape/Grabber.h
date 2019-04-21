@@ -46,6 +46,11 @@ private:
 	//return hit for first physics body in reach
 	const FHitResult GetFirstPhysicsBodyInReach();
 
+	FVector GetReachLineStart();
+
+	//returns end of the reach line
+	FVector GetReachLineEnd();
+
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
