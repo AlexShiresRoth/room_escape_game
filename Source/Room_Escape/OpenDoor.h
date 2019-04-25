@@ -29,10 +29,7 @@ private:
 	float CloseAngle;
 
 	UPROPERTY(EditAnywhere)
-	ATriggerVolume* PressurePlate;
-
-	UPROPERTY(EditAnywhere)
-	AActor* ActorThatOpens;
+	ATriggerVolume* PressurePlate;	
 
 	UPROPERTY(EditAnywhere)
 	float DoorCloseDelay = 1.f;
@@ -40,6 +37,9 @@ private:
 	float LastDoorOpenTime;
 
 	AActor* Owner;//the owning door
+
+	//returns total mass in kgs
+	float GetTotalMassOfActorsOnPlate();
 
 protected:
 	// Called when the game starts
