@@ -5,8 +5,10 @@
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "Engine/TriggerVolume.h"
+#include "Runtime/Core/Public/Delegates/Delegate.h"
 #include "OpenDoor.generated.h"
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnOpenRequest);
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class ROOM_ESCAPE_API UOpenDoor : public UActorComponent
@@ -20,6 +22,9 @@ public:
 	void OpenDoor();
 
 	void CloseDoor();
+
+	UPROPERTY(BluePrintAssignable)
+	FOnOpenRequest OnOpenRequest;
 
 private:
 	UPROPERTY(EditAnywhere)
