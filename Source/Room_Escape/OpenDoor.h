@@ -8,7 +8,7 @@
 #include "Runtime/Core/Public/Delegates/Delegate.h"
 #include "OpenDoor.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnOpenRequest);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FDoorEvent);
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class ROOM_ESCAPE_API UOpenDoor : public UActorComponent
@@ -19,27 +19,22 @@ public:
 	// Sets default values for this component's properties
 	UOpenDoor();
 
-	void OpenDoor();
-
-	void CloseDoor();
+	UPROPERTY(BluePrintAssignable)
+	FDoorEvent OnOpen;
 
 	UPROPERTY(BluePrintAssignable)
-	FOnOpenRequest OnOpenRequest;
+	FDoorEvent OnClose;
 
 private:
-	UPROPERTY(EditAnywhere)
-	float OpenAngle;
 
 	UPROPERTY(EditAnywhere)
 	float CloseAngle;
 
+	UPROPERTY(EditAnyWhere)
+	float TriggerMass = 30.f;
+
 	UPROPERTY(EditAnywhere)
 	ATriggerVolume* PressurePlate = nullptr;	
-
-	UPROPERTY(EditAnywhere)
-	float DoorCloseDelay = 1.f;
-
-	float LastDoorOpenTime;
 
 	AActor* Owner = nullptr;//the owning door
 
