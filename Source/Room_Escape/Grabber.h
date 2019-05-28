@@ -25,7 +25,7 @@ protected:
 
 private: 
 	//how far ahead of the player can we reach
-	float Reach = 150.0f;
+	float Reach = 250.0f;
 
 	UPhysicsHandleComponent* PhysicsHandle = nullptr;
 

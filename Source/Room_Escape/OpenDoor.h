@@ -31,7 +31,7 @@ private:
 	float CloseAngle;
 
 	UPROPERTY(EditAnyWhere)
-	float TriggerMass = 30.f;
+	float TriggerMass = 60.f;
 
 	UPROPERTY(EditAnywhere)
 	ATriggerVolume* PressurePlate = nullptr;	
